@@ -1,0 +1,7 @@
+{
+    "name": "json-transfer-protocol",
+    "version": "0.0.1",
+    "scripts": {
+        "test": "node ./test/index.js"
+    }
+}
