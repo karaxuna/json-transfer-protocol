@@ -49,8 +49,8 @@ const buffer = types.object.write(data, schema)
 const [ parsed ] = types.object.read(buffer, 0, schema);
 
 assert.deepStrictEqual(
-    parsed,
-    data,
-    'Parsed buffer should be equal to original data'
+  parsed,
+  data,
+  'Parsed buffer should be equal to original data'
 );
 ```
