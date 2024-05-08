@@ -7,7 +7,7 @@ module.exports = createType({
         const results = []
 
         if (!data || !(count in data)) {
-            throw new Error(`Could not determine array length. Poperty '${count}' does not exist on:\n${JSON.stringify(data)}`)
+            throw new Error(`Could not determine array length. Property '${count}' does not exist on:\n${JSON.stringify(data)}`)
         }
 
         for (let i = 0; i < data[count]; i++) {
@@ -20,7 +20,7 @@ module.exports = createType({
         return [ results, offset ]
     },
     write: (value, entry) => {
-        let buffer = types[entry.count].write(value.length)
+        let buffer = Buffer.from([]);
 
         for (let item of value) {
             buffer = Buffer.concat([

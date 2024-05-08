@@ -21,7 +21,16 @@ module.exports = createType({
         const buffers = []
 
         for (let property of entry.properties) {
-            const buffer = types[property.type].write(value[property.name], property)
+            const array = entry.properties.find((prop) => prop.count === property.name);
+
+            let buffer;
+            if (array) {
+                buffer = types[property.type].write(value[array.name].length, property)
+            }
+            else {
+                buffer = types[property.type].write(value[property.name], property)
+            }
+
             buffers.push(buffer)
         }
 
